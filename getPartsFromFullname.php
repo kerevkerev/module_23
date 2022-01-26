@@ -11,11 +11,7 @@ function getPartsFromFullname($str)
     list($surname, $name, $patronomyc) = explode(' ', $str);
     $keys = ['surname', 'name', 'patronomyc'];
     $value = [$surname, $name, $patronomyc];
-    $arr = array_combine($keys, $value);
-
-    echo '<pre>';
-    print_r($arr);
-    echo '</pre>';
+    return array_combine($keys, $value);
 }
 
 

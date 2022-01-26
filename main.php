@@ -1,6 +1,8 @@
 <?php
 include './getFullnameFromParts.php';
 include './getPartsFromFullname.php';
+include './getShortName.php';
+include './getGenderFromName.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,20 +31,32 @@ include './getPartsFromFullname.php';
         <tr>
           <th scope="row">1</th>
           <td>getFullnameFromParts</td>
-          <td>«Иванов», «Иван» и «Иванович»</td>
+          <td>«Иванов», «Иван»  «Иванович»</td>
           <td><?php getFullnameFromParts('Иванов', 'Иван', 'Иванович'); ?></td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>getPartsFromFullname</td>
-          <td>Иванов Иван Иванович</td>
-          <td><?php getPartsFromFullname($str); ?></td>
+          <td><?php echo $str?></td>
+          <td><?php echo '<pre>';
+              print_r(getPartsFromFullname($str));
+              echo '</pre>'; ?></td>
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td>getPartsFromFullname</td>
-          <td>Иванов Иван Иванович</td>
-          <td><?php getPartsFromFullname($str); ?></td>
+          <td>getShortName</td>
+          <td><?php echo $strCut?></td>
+          <td><?php echo '<pre>';
+              print_r(getShortName($strCut));
+              echo '</pre>'; ?></td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>getGenderFromName</td>
+          <td><?php echo $genderByName?></td>
+          <td><?php echo '<pre>';
+              print_r(getGenderFromName($genderByName));
+              echo '</pre>'; ?></td>
         </tr>
       </tbody>
     </table>
