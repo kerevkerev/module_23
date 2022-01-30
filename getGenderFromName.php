@@ -8,15 +8,14 @@ function getGenderFromName($str)
     $summary = 0;
     $genderByName = getPartsFromFullname($str);
 
-    // if(strpos($genderByName['surname'],'в')&&(strpos($genderByName['name'],'й')||(strpos($genderByName['name'],'н')))&&strpos($genderByName['patronomyc'],'ич')){
-    if (strpos($genderByName['surname'], 'в') && ((strpos($genderByName['name'], 'й')) || (strpos($genderByName['name'], 'н'))) && strpos($genderByName['patronomyc'], 'ич')) {
+    if ((mb_substr($genderByName['surname'], -1) == 'в') || ((mb_substr($genderByName['name'], -1) == 'й') || (mb_substr($genderByName['name'], -1) == 'н')) || (mb_substr($genderByName['patronomyc'], -2) == 'ич')) {
         $summary++;
-        return $summary;
-    } elseif (strpos($genderByName['surname'], 'ва') && (strpos($genderByName['name'], 'а')) && strpos($genderByName['patronomyc'], 'вна')) {
+        return 1;
+    } elseif ((mb_substr($genderByName['surname'], -2) == 'ва') || (mb_substr($genderByName['name'], -1) == 'а') || (mb_substr($genderByName['patronomyc'], -3) == 'вна')) {
         $summary--;
-        return $summary;
+        return -1;
     } else {
         $summary = 0;
-        return $summary;
+        return 0;
     }
 };

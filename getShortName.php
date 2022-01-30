@@ -3,8 +3,9 @@ include_once "./getPartsFromFullname.php";
 
 
 $strCut = 'Бакун Анатолий Александрович';
-function getShortName($Cut)
+function getShortName($cut)
 {
-    $temp = getPartsFromFullname($Cut);
-    echo $temp['surname'] . ' ' . substr($temp['name'], 0, 2) . '.';
+    $temp = getPartsFromFullname($cut);
+    $result = $temp['surname'] . ' ' . mb_substr($temp['name'], 0, 1) . '.';
+    return $result;
 }

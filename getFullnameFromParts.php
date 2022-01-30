@@ -3,6 +3,6 @@
 
 function getFullnameFromParts($surname, $name, $patronomyc)
 {
-    $str = "$surname  $name  $patronomyc";
-    echo $str;
+    $str = "$surname $name $patronomyc";
+    return $str;
 }
