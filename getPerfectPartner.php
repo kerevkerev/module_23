@@ -11,10 +11,7 @@ function getPerfectPartner($surname, $name, $patronomyc, $arr)
 {
 
     $randNumb = rand(0, count($arr) - 1);
-    $percentCompatibility = mt_rand(50, 100);
-
-
-
+    $percentCompatibility = mt_rand(50, 100) + (mt_rand(0, 10) / 10) + (mt_rand(0, 10) / 100);
 
     $person_1 = getShortName(getFullnameFromParts($surname, $name, $patronomyc));
     $person_2 = getShortName($arr[$randNumb]['fullname']);
@@ -24,10 +21,8 @@ function getPerfectPartner($surname, $name, $patronomyc, $arr)
         ♡ Идеально на $percentCompatibility% ♡    
         PerfectPartner;
 
-
     $y = getGenderFromName($arr[$randNumb]['fullname']);
     $x = getGenderFromName(getFullnameFromParts($surname, $name, $patronomyc));
-    echo $y, $x;
 
     if (($x != $y && $y != 0)) {
         return $result;
@@ -35,8 +30,3 @@ function getPerfectPartner($surname, $name, $patronomyc, $arr)
         return "Не повезло...";
     }
 }
-
-
-
-// Иван И. + Наталья С. = 
-// ♡ Идеально на 64.43% ♡
